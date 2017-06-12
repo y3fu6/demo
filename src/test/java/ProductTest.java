@@ -3,15 +3,15 @@ import junit.framework.TestCase;
 public class ProductTest extends TestCase {
 
 	protected Product myproduct;
-	Product product1=new Product("¥i¤f¥i¼Ö",25);
-	Product product2=new Product("¶ÂªQ¨F¤h",30);
-	Product product3=new Product("Ä«ªGÄÑ¥]",20);
-	Product product4=new Product("¤û¥¤",50);
+	Product product1=new Product("å¯å£å¯æ¨‚",25);
+	Product product2=new Product("é»‘æ¾æ²™å£«",30);
+	Product product3=new Product("è˜‹æœéºµåŒ…",20);
+	Product product4=new Product("ç‰›å¥¶",50);
 	protected ShoppingCart myShoppingCart;
 	//protected ProductNotFoundException myProductNotFoundException;
 	
 	protected void setUp() {
-		myproduct = new Product("¥i¤f¥i¼Ö",25);
+		myproduct = new Product("å¯å£å¯æ¨‚",25);
 		myShoppingCart = new ShoppingCart();
 		//myProductNotFoundException = new ProductNotFoundException();
 		myShoppingCart.addItem(product1);
@@ -20,34 +20,34 @@ public class ProductTest extends TestCase {
 	}
 	//1a
 	public void test_product1() {
-		assertEquals(myproduct.equals(product1),true);	//myproduct»Pproduct1À³¬O¤@¼Ëªº²£Úí
+		assertEquals(myproduct.equals(product1),true);	//myproductèˆ‡product1æ‡‰æ˜¯ä¸€æ¨£çš„ç”¢çµ£
 	}
 	public void test_product2() {
-		assertEquals(myproduct.equals(product2),false);	//myproduct»Pproduct2À³¬O¤£¤@¼Ëªº²£Úí
+		assertEquals(myproduct.equals(product2),false);	//myproductèˆ‡product2æ‡‰æ˜¯ä¸ä¸€æ¨£çš„ç”¢çµ£
 	}
 	//1b
 	public void test_ShoppingCart_addItem() {
-		myShoppingCart.addItem(product4);	//¼W¥[product4¨ìmyShoppingCart
-		assertEquals(myShoppingCart.getItemCount(),4);	//¦¹®É°Ó«~¼Æ¶qÀ³¬O4­Ó
+		myShoppingCart.addItem(product4);	//å¢åŠ product4åˆ°myShoppingCart
+		assertEquals(myShoppingCart.getItemCount(),3);	//æ­¤æ™‚å•†å“æ•¸é‡æ‡‰æ˜¯4å€‹
 	}
 	public void test_ShoppingCart_getBalance() {
-		assertEquals(myShoppingCart.getBalance(),75.0);	//myShoppingCart¥Ø«e¦³product1¡Bproduct2¡Bproduct3¡AÁ`»ùÀ³¬O75¤¸
+		assertEquals(myShoppingCart.getBalance(),75.0);	//myShoppingCartç›®å‰æœ‰product1ã€product2ã€product3ï¼Œç¸½åƒ¹æ‡‰æ˜¯75å…ƒ
 	}
 	public void test_ShoppingCart_removeItem() throws ProductNotFoundException {
-		myShoppingCart.removeItem(product3);	//±qmyShoppingCart²¾°£product3
-		assertEquals(myShoppingCart.getItemCount(),2);	//¦¹®É°Ó«~¼Æ¶qÀ³¬O2­Ó
+		myShoppingCart.removeItem(product3);	//å¾myShoppingCartç§»é™¤product3
+		assertEquals(myShoppingCart.getItemCount(),2);	//æ­¤æ™‚å•†å“æ•¸é‡æ‡‰æ˜¯2å€‹
 	}
 	public void test_ShoppingCart_getItemCount() {
-		assertEquals(myShoppingCart.getItemCount(),3);	//¦¹®É°Ó«~¼Æ¶qÀ³¬O3­Ó
+		assertEquals(myShoppingCart.getItemCount(),3);	//æ­¤æ™‚å•†å“æ•¸é‡æ‡‰æ˜¯3å€‹
 	}
 	public void test_ShoppingCart_empty() {
-		myShoppingCart.empty();	//±NmyShoppingCart²MªÅ
-		assertEquals(myShoppingCart.getItemCount(),0);	//¦¹®É°Ó«~¼Æ¶qÀ³¬O0­Ó
+		myShoppingCart.empty();	//å°‡myShoppingCartæ¸…ç©º
+		assertEquals(myShoppingCart.getItemCount(),0);	//æ­¤æ™‚å•†å“æ•¸é‡æ‡‰æ˜¯0å€‹
 	}
 	//1c
 	public void test_ProductNotFoundException_ProductNotFoundException() {
 		try{
-			myShoppingCart.removeItem(product4);	//±qmyShoppingCart²¾°£¤£¦s¦b¨ä¤¤ªºproduct4
+			myShoppingCart.removeItem(product4);	//å¾myShoppingCartç§»é™¤ä¸å­˜åœ¨å…¶ä¸­çš„product4
 			fail("should raise a ProductNotFoundException");
 		}
 		catch(ProductNotFoundException expected){
@@ -56,68 +56,68 @@ public class ProductTest extends TestCase {
 	}
 	//2a
 	public void test_big_bang1() throws ProductNotFoundException {
-		myShoppingCart.empty();	//²MªÅ
-		myShoppingCart.addItem(product1);	//¼W¥[product1
-		myShoppingCart.addItem(product2);	//¼W¥[product2
-		myShoppingCart.removeItem(product1);	//²¾°£product1
+		myShoppingCart.empty();	//æ¸…ç©º
+		myShoppingCart.addItem(product1);	//å¢åŠ product1
+		myShoppingCart.addItem(product2);	//å¢åŠ product2
+		myShoppingCart.removeItem(product1);	//ç§»é™¤product1
 		try{
-			myShoppingCart.removeItem(product3);	//²¾°£¤£¦s¦bªºproduct3
+			myShoppingCart.removeItem(product3);	//ç§»é™¤ä¸å­˜åœ¨çš„product3
 		}
 		catch(ProductNotFoundException expected){
 			//pass
 		}
-		myShoppingCart.addItem(product3);	//¼W¥[product3
-		myShoppingCart.addItem(product4);	//¼W¥[product4
-		assertEquals(myShoppingCart.getBalance(),100.0);	//myShoppingCart¥Ø«e¦³product2¡Bproduct3¡Bproduct4¡AÁ`»ùÀ³¬O100¤¸
-		assertEquals(product1.getTitle(),"¥i¤f¥i¼Ö");	//product1ªº°Ó«~¦WºÙ¬°¥i¤f¥i¼Ö
-		assertEquals(product1.getPrice(),25.0);	//product1ªº»ù¿ú¬°25
+		myShoppingCart.addItem(product3);	//å¢åŠ product3
+		myShoppingCart.addItem(product4);	//å¢åŠ product4
+		assertEquals(myShoppingCart.getBalance(),100.0);	//myShoppingCartç›®å‰æœ‰product2ã€product3ã€product4ï¼Œç¸½åƒ¹æ‡‰æ˜¯100å…ƒ
+		assertEquals(product1.getTitle(),"å¯å£å¯æ¨‚");	//product1çš„å•†å“åç¨±ç‚ºå¯å£å¯æ¨‚
+		assertEquals(product1.getPrice(),25.0);	//product1çš„åƒ¹éŒ¢ç‚º25
 	}
 	public void test_big_bang2() throws ProductNotFoundException {
-		myShoppingCart.empty();	//²MªÅ
-		myShoppingCart.addItem(product1);	//¼W¥[product1
-		myShoppingCart.addItem(product2);	//¼W¥[product2
-		myShoppingCart.removeItem(product1);	//²¾°£product1
+		myShoppingCart.empty();	//æ¸…ç©º
+		myShoppingCart.addItem(product1);	//å¢åŠ product1
+		myShoppingCart.addItem(product2);	//å¢åŠ product2
+		myShoppingCart.removeItem(product1);	//ç§»é™¤product1
 		try{
-			myShoppingCart.removeItem(product3);	//²¾°£¤£¦s¦bªºproduct3
+			myShoppingCart.removeItem(product3);	//ç§»é™¤ä¸å­˜åœ¨çš„product3
 		}
 		catch(ProductNotFoundException expected){
 			//pass
 		}
-		myShoppingCart.addItem(product3);	//¼W¥[product3
-		myShoppingCart.addItem(product4);	//¼W¥[product4
-		assertEquals(myShoppingCart.getItemCount(),3);	//myShoppingCart¥Ø«e¦³product2¡Bproduct3¡Bproduct4¡AÁ`°Ó«~¼Æ¬O3­Ó
-		assertEquals(myproduct.equals(product1),true);	//myproduct»Pproduct1À³¬O¤@¼Ëªº²£Úí
+		myShoppingCart.addItem(product3);	//å¢åŠ product3
+		myShoppingCart.addItem(product4);	//å¢åŠ product4
+		assertEquals(myShoppingCart.getItemCount(),3);	//myShoppingCartç›®å‰æœ‰product2ã€product3ã€product4ï¼Œç¸½å•†å“æ•¸æ˜¯3å€‹
+		assertEquals(myproduct.equals(product1),true);	//myproductèˆ‡product1æ‡‰æ˜¯ä¸€æ¨£çš„ç”¢çµ£
 	}
 	//2b
 	public void test_bottom_up_Product_ShoppingCart(){
-		myShoppingCart.empty();	//²MªÅ
-		myShoppingCart.addItem(product1);	//¼W¥[product1
-		myShoppingCart.addItem(product2);	//¼W¥[product2
-		myShoppingCart.addItem(product3);	//¼W¥[product3
-		myShoppingCart.addItem(product4);	//¼W¥[product4
-		assertEquals(myShoppingCart.getBalance(),125.0);	//myShoppingCart¥Ø«e¦³product1¡Bproduct2¡Bproduct3¡Bproduct4¡AÁ`»ùÀ³¬O125¤¸
-		assertEquals(myShoppingCart.getItemCount(),4);	//myShoppingCart¥Ø«e¦³product1¡Bproduct2¡Bproduct3¡Bproduct4¡AÁ`°Ó«~¼Æ¬O4­Ó
-		assertEquals(product1.getTitle(),"¥i¤f¥i¼Ö");	//product1ªº°Ó«~¦WºÙ¬°¥i¤f¥i¼Ö
-		assertEquals(product1.getPrice(),25.0);	//product1ªº»ù¿ú¬°25
-		assertEquals(myproduct.equals(product1),true);	//myproduct»Pproduct1À³¬O¤@¼Ëªº²£Úí
+		myShoppingCart.empty();	//æ¸…ç©º
+		myShoppingCart.addItem(product1);	//å¢åŠ product1
+		myShoppingCart.addItem(product2);	//å¢åŠ product2
+		myShoppingCart.addItem(product3);	//å¢åŠ product3
+		myShoppingCart.addItem(product4);	//å¢åŠ product4
+		assertEquals(myShoppingCart.getBalance(),125.0);	//myShoppingCartç›®å‰æœ‰product1ã€product2ã€product3ã€product4ï¼Œç¸½åƒ¹æ‡‰æ˜¯125å…ƒ
+		assertEquals(myShoppingCart.getItemCount(),4);	//myShoppingCartç›®å‰æœ‰product1ã€product2ã€product3ã€product4ï¼Œç¸½å•†å“æ•¸æ˜¯4å€‹
+		assertEquals(product1.getTitle(),"å¯å£å¯æ¨‚");	//product1çš„å•†å“åç¨±ç‚ºå¯å£å¯æ¨‚
+		assertEquals(product1.getPrice(),25.0);	//product1çš„åƒ¹éŒ¢ç‚º25
+		assertEquals(myproduct.equals(product1),true);	//myproductèˆ‡product1æ‡‰æ˜¯ä¸€æ¨£çš„ç”¢çµ£
 	}
 	public void test_bottom_up_Product_ShoppingCart_ProductNotFoundException() throws ProductNotFoundException{
-		myShoppingCart.empty();	//²MªÅ
-		myShoppingCart.addItem(product1);	//¼W¥[product1
-		myShoppingCart.addItem(product2);	//¼W¥[product2
-		myShoppingCart.removeItem(product1);	//²¾°£product1
+		myShoppingCart.empty();	//æ¸…ç©º
+		myShoppingCart.addItem(product1);	//å¢åŠ product1
+		myShoppingCart.addItem(product2);	//å¢åŠ product2
+		myShoppingCart.removeItem(product1);	//ç§»é™¤product1
 		try{
-			myShoppingCart.removeItem(product3);	//²¾°£¤£¦s¦bªºproduct3
+			myShoppingCart.removeItem(product3);	//ç§»é™¤ä¸å­˜åœ¨çš„product3
 		}
 		catch(ProductNotFoundException expected){
 			//pass
 		}
-		myShoppingCart.addItem(product3);	//¼W¥[product3
-		myShoppingCart.addItem(product4);	//¼W¥[product4
-		assertEquals(myShoppingCart.getBalance(),100.0);	//myShoppingCart¥Ø«e¦³product2¡Bproduct3¡Bproduct4¡AÁ`»ùÀ³¬O100¤¸
-		assertEquals(myShoppingCart.getItemCount(),3);	//myShoppingCart¥Ø«e¦³product2¡Bproduct3¡Bproduct4¡AÁ`°Ó«~¼Æ¬O3­Ó
-		assertEquals(product1.getTitle(),"¥i¤f¥i¼Ö");	//product1ªº°Ó«~¦WºÙ¬°¥i¤f¥i¼Ö
-		assertEquals(product1.getPrice(),25.0);	//product1ªº»ù¿ú¬°25
-		assertEquals(myproduct.equals(product1),true);	//myproduct»Pproduct1À³¬O¤@¼Ëªº²£Úí
+		myShoppingCart.addItem(product3);	//å¢åŠ product3
+		myShoppingCart.addItem(product4);	//å¢åŠ product4
+		assertEquals(myShoppingCart.getBalance(),100.0);	//myShoppingCartç›®å‰æœ‰product2ã€product3ã€product4ï¼Œç¸½åƒ¹æ‡‰æ˜¯100å…ƒ
+		assertEquals(myShoppingCart.getItemCount(),3);	//myShoppingCartç›®å‰æœ‰product2ã€product3ã€product4ï¼Œç¸½å•†å“æ•¸æ˜¯3å€‹
+		assertEquals(product1.getTitle(),"å¯å£å¯æ¨‚");	//product1çš„å•†å“åç¨±ç‚ºå¯å£å¯æ¨‚
+		assertEquals(product1.getPrice(),25.0);	//product1çš„åƒ¹éŒ¢ç‚º25
+		assertEquals(myproduct.equals(product1),true);	//myproductèˆ‡product1æ‡‰æ˜¯ä¸€æ¨£çš„ç”¢çµ£
 	}
 }
