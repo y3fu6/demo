@@ -28,14 +28,14 @@ public class ProductTest extends TestCase {
 	//1b
 	public void test_ShoppingCart_addItem() {
 		myShoppingCart.addItem(product4);	//增加product4到myShoppingCart
-		assertEquals(myShoppingCart.getItemCount(),3);	//此時商品數量應是4個
+		assertEquals(myShoppingCart.getItemCount(),4);	//此時商品數量應是4個
 	}
 	public void test_ShoppingCart_getBalance() {
 		assertEquals(myShoppingCart.getBalance(),75.0);	//myShoppingCart目前有product1、product2、product3，總價應是75元
 	}
 	public void test_ShoppingCart_removeItem() throws ProductNotFoundException {
 		myShoppingCart.removeItem(product3);	//從myShoppingCart移除product3
-		assertEquals(myShoppingCart.getItemCount(),2);	//此時商品數量應是2個
+		assertEquals(myShoppingCart.getItemCount(),1);	//此時商品數量應是2個
 	}
 	public void test_ShoppingCart_getItemCount() {
 		assertEquals(myShoppingCart.getItemCount(),3);	//此時商品數量應是3個
