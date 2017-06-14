@@ -88,11 +88,11 @@ public class ProductTest extends TestCase {
 		assertEquals(myShoppingCart.getItemCount(),3);
 		assertEquals(myproduct.equals(product1),true);
 	}
-	/*
+	
 	public void test_ShoppingCart_half() {
 		assertEquals(myShoppingCart.half(product2),15);	//軟工錯誤測試
 	}
-	*/
+	
 	//2b
 	public void test_bottom_up_Product_ShoppingCart(){
 		myShoppingCart.empty();
