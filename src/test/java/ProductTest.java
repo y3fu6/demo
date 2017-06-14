@@ -35,7 +35,7 @@ public class ProductTest extends TestCase {
 	}
 	public void test_ShoppingCart_removeItem() throws ProductNotFoundException {
 		myShoppingCart.removeItem(product3);	//從myShoppingCart移除product3
-		assertEquals(myShoppingCart.getItemCount(),1);	//此時商品數量應是2個
+		assertEquals(myShoppingCart.getItemCount(),2);	//此時商品數量應是2個
 	}
 	public void test_ShoppingCart_getItemCount() {
 		assertEquals(myShoppingCart.getItemCount(),3);	//此時商品數量應是3個
