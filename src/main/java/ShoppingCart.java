@@ -28,9 +28,9 @@ public class ShoppingCart {
 		items.clear();
 	}
 	
-	public double half(Product item)
+	public int  half(Product item)
 	{
-		return(item.getPrice())/2;	//軟工錯誤方法
+		return((int)item.getPrice())/2;	//軟工錯誤方法
 	}
 	
 }
