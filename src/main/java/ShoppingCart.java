@@ -27,10 +27,10 @@ public class ShoppingCart {
 	public void empty() {
 		items.clear();
 	}
-	/*
+	
 	public double half(Product item)
 	{
 		return(item.getPrice())/2;	//軟工錯誤方法
 	}
-	*/
+	
 }
